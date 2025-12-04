@@ -10,11 +10,20 @@ body {
     align-items: center;
     min-height: 100vh;
     background-color: #1f1f1f;
+    flex-direction: column;
+    gap: 50px;
+}
+h1 {
+    color: white;
+
 }
 
 .box {
-    height: 500px;
-    width: 500px;
+
+    height: 400px;
+    width: 25%;
+    justify-content: center;
+    align-items: center;
     display: flex;   
     flex-wrap: wrap;
     gap: 20px;
@@ -24,7 +33,7 @@ body {
     height: 200px;
     width: 200px;
     opacity: 0.7;
-  transition: opacity 0.2s ease, filter 0.2s ease;
+    transition: opacity 0.2s ease, filter 0.2s ease;
 }
 
 #rojo {
@@ -43,7 +52,8 @@ body {
     background-color: yellow;
 }
 
-.active {
-  opacity: 1;
-  filter: brightness(1.4);
+
+.bloq {
+  pointer-events: none;
+  cursor: default;
 }
