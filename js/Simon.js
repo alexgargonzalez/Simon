@@ -9,6 +9,7 @@ export class Simon {
     this.listaJuego = [];
     this.UI = UI;
     this.btn = UI.btn;
+    this.enJuego = false;
   }
 
   iniciarJuego() {
@@ -16,6 +17,7 @@ export class Simon {
     this.listaJuego = [];
     this.listaJugadores = [];
     this.genenarSecuencia();
+    this.enJuego = true;
     this.reproducirSecuencia();
   }
 
@@ -23,7 +25,7 @@ export class Simon {
     //Genero una secuencia aleatoria y se la voy añadiendo a la lista del JUEGO segun el indice de la lista de botones.
     let indiceAleatorio = Math.floor(Math.random() * this.btn.length);
     this.listaJuego.push(this.btn[indiceAleatorio]);
-    this.listaJugadores = []
+    
   }
 
 
@@ -49,16 +51,13 @@ export class Simon {
   continuarJuego() {
     this.genenarSecuencia();
     this.reproducirSecuencia();
+
+    UI.rondas.innerHTML = this.listaJuego.length;
+
+    this.listaJugadores = []
   }
 
-  comprobarSecuenciaFinal() {
-    for (let index = 0; index < this.listaJuego.length; index++) {
-      if (this.listaJuego[index] != this.listaJugadores[index]) {
-        alert("Has perdido");
-        return;
-      }
-    }
-    UI.rondas.innerHTML = this.listaJugadores.length;
+  comprobarSecuenciaFinal() { 
     this.continuarJuego();
   }
 }

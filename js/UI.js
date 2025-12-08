@@ -31,21 +31,26 @@ export const UI = {
   registrarClick : (color, simonGame) => {
     simonGame.listaJugadores.push(color)
 
-    
-    
-    if(simonGame.listaJugadores[simonGame.listaJugadores.length - 1] != color) {
-      alert("Has perdido")
+    if (!simonGame.enJuego) {
+      return;
     }
-    
-    
 
-    UI.rondas.innerHTML = simonGame.listaJugadores.length;
-    
-    if(simonGame.listaJugadores.length === simonGame.listaJuego.length) {
+    const index = simonGame.listaJugadores.length - 1;
+
+    if (simonGame.listaJugadores[index] !== simonGame.listaJuego[index]) {
+     alert("Has perdido");
+     simonGame.enJuego = false; 
+     return;
+    }
+
+    if (simonGame.listaJugadores.length === simonGame.listaJuego.length) {
       simonGame.comprobarSecuenciaFinal();
-    }
+    }    
 
+  
     
+    
+
     
 
   },
