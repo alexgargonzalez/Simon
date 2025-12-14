@@ -29,29 +29,10 @@ export const UI = {
   },
 
   registrarClick : (color, simonGame) => {
-    simonGame.listaJugadores.push(color)
+    
 
-    if (!simonGame.enJuego) {
-      return;
-    }
-
-    const index = simonGame.listaJugadores.length - 1;
-
-    if (simonGame.listaJugadores[index] !== simonGame.listaJuego[index]) {
-     alert("Has perdido");
-     simonGame.enJuego = false; 
-     return;
-    }
-
-    if (simonGame.listaJugadores.length === simonGame.listaJuego.length) {
-      simonGame.comprobarSecuenciaFinal();
-    }    
-
+    simonGame.comprobarSecuencia(color);
   
-    
-    
-
-    
 
   },
 
